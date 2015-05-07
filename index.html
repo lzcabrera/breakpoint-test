@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
     <style>
       * {
         -webkit-box-sizing: border-box;
@@ -72,7 +73,6 @@
           background-clip: content-box;
         }
       }
-
       .grid{
         height: 1000px;
         background-color: yellow;
@@ -96,7 +96,7 @@
     <script>
       var container = document.getElementById("container");
       var width = document.getElementById("width-value");
-      var orientation = document.getElementById("orientation-value");
+      var orientationx = document.getElementById("orientation-value");
       width.innerHTML = container.offsetWidth;
 
       window.onresize = function(event) {
@@ -104,10 +104,10 @@
         var width = document.getElementById("width-value");
         width.innerHTML = container.offsetWidth;
       };
-
-      window.addEventListener("orientationchange", function() {
-        orientation.innerHTML = window.orientation;
-      }, false);
+      alert(window.orientation);
+      window.onorientationchange = function(event) {
+        orientationx.innerHTML = window.orientation;
+      };
     </script>
   </body>
 </html>
