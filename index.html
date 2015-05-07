@@ -75,6 +75,7 @@
 
       .grid{
         height: 1000px;
+        background-color: yellow;
       }
 
     </style>
@@ -85,7 +86,9 @@
     <div class="grid" id="container">
       <div id="fqv" style="position:fixed;top:4px;left:4px;z-index:999;color:#fff;">
         <p style="font-size:12px;background:rgba(0,0,0,0.75);padding:5px;margin-bottom:1px;line-height:1.2;">
-          <span class="left">Width:</span><span id="width-value"></span>
+          <span class="left">Width: </span><span id="width-value"></span>
+          <br/>
+          <span class="left">Orientation: </span><span id="orientation-value"></span>
         </p>
       </div>
     </div>
@@ -93,6 +96,7 @@
     <script>
       var container = document.getElementById("container");
       var width = document.getElementById("width-value");
+      var orientation = document.getElementById("orientation-value");
       width.innerHTML = container.offsetWidth;
 
       window.onresize = function(event) {
@@ -100,6 +104,10 @@
         var width = document.getElementById("width-value");
         width.innerHTML = container.offsetWidth;
       };
+
+      window.addEventListener("orientationchange", function() {
+        orientation.innerHTML = window.orientation;
+      }, false);
     </script>
   </body>
 </html>
